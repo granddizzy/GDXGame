@@ -1,0 +1,74 @@
+package com.badlogic.mygame.units;
+
+import com.badlogic.mygame.arena.Arena;
+import com.badlogic.mygame.units.abstractUnits.Equipment;
+import com.badlogic.mygame.units.abstractUnits.Unit;
+import com.badlogic.mygame.units.abstractUnits.UnitProtectiveWithShield;
+import com.badlogic.mygame.units.abstractUnits.UnitsTypes;
+
+import java.util.Random;
+
+/**
+ * Палладин
+ */
+public class Palladine extends UnitProtectiveWithShield {
+
+    public Palladine(String name) {
+        super(Equipment.shield_and_sword.getHealth(), Equipment.shield_and_sword.getAttack(),
+                Equipment.shield_and_sword.getDefend(), UnitsTypes.Palladine, name);
+    }
+
+    public boolean defenceCape(Unit target) {
+        if (getAbilityPoints() == 2) {
+            super.clearAbilityPoints();
+            target.addSuperimposedAction("Плащ защитника", 1, 0, target.getDefense(), 0);
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean heavenlyShield(Unit target) {
+        if (getAbilityPoints() == 2) {
+            super.clearAbilityPoints();
+            target.addSuperimposedAction("Небесный щит", 1, 0, 100, 0);
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public Unit findTarget(Arena arena) {
+        // ищем ближайшего своего
+        return arena.findTheNearestTeamUnit(this, false);
+    }
+
+    public Unit findTarget2(Arena arena) {
+        // ищем чужого
+        return arena.findTheNearestTeamUnit(this, true);
+    }
+
+    @Override
+    public boolean applyAbility(Unit targetUnit, Arena arena) {
+        switch (new Random().nextInt(2)) {
+            case 0 -> {
+                return defenceCape(targetUnit);
+            }
+            case 1 -> {
+                return heavenlyShield(targetUnit);
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean isInDiapason(Unit targetUnit) {
+        return this.distanceSkill >= this.getCoordinates().calculateDistance(targetUnit.getCoordinates());
+    }
+
+    @Override
+    public String getCharacterRepresentation() {
+        return "Pld";
+    }
+}
