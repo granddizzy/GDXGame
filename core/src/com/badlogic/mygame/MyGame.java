@@ -15,10 +15,13 @@ import com.badlogic.mygame.units.abstractUnits.Unit;
 
 public class MyGame extends ApplicationAdapter {
     SpriteBatch batch;
-    Texture gameover, background, crossbowman, druid, monk, palladine, peasant, robber, sniper, sorcerer, spearman, wizard;
+    Texture gameover, background, crossbowman, druid, monk, palladine, peasant, robber, sniper, sorcerer, spearman, wizard, pit;
     Arena arena;
     Music music;
     private long lastDropTime;
+
+    public int width;
+    public int heigth;
 
 
     @Override
@@ -40,17 +43,22 @@ public class MyGame extends ApplicationAdapter {
         spearman = new Texture("units/Spearman1.gif");
         wizard = new Texture("units/Spearman1.gif");
 
+        pit = new Texture("pit2.png");
+
         music = Gdx.audio.newMusic(Gdx.files.internal("musics/call-of-victory.mp3"));
         music.setLooping(true);
         music.setVolume(0.2f);
         music.play();
 
-        Map map = new Map(30, 30);
+        Map map = new Map(10, 10);
 
         arena = new Arena(map);
 
-        arena.createTeam("Команда Добра", 5, "GREEN");
-        arena.createTeam("Команда Зла", 5, "RED");
+        arena.createTeam("Команда Добра", 10, "GREEN");
+        arena.createTeam("Команда Зла", 10, "RED");
+
+        width = (int) Gdx.graphics.getWidth();
+        heigth = (int) (Gdx.graphics.getHeight() - Gdx.graphics.getHeight() * 0.3);
     }
 
     @Override
@@ -64,8 +72,10 @@ public class MyGame extends ApplicationAdapter {
             for (int j = arena.getMap().sizeY - 1; j >= 0; j--) {
                 Object field = arena.getMap().getField(i, j);
 
-                int kx = (int) (Gdx.graphics.getWidth() - Gdx.graphics.getWidth() * 0.1) / arena.getMap().sizeX;
-                int ky = (int) (Gdx.graphics.getHeight() - Gdx.graphics.getHeight() * 0.4) / arena.getMap().sizeY;
+                int kx = (int) ((width - width * 0.02) / arena.getMap().sizeX);
+                int ky = (int) ((heigth - heigth * 0.15) / arena.getMap().sizeY);
+
+                int fieldWigth = (int) (this.width / arena.getMap().sizeX);
 
                 batch.begin();
                 if (field instanceof Unit) {
@@ -77,30 +87,30 @@ public class MyGame extends ApplicationAdapter {
 
                     switch (type) {
                         case "Crossbowman" ->
-                                batch.draw(crossbowman, i * kx + (mx == -1 ? crossbowman.getWidth() : 0), j * ky, crossbowman.getWidth() * mx, crossbowman.getHeight());
+                                batch.draw(crossbowman, i * kx + (mx == -1 ? crossbowman.getWidth() : 0), j * ky, fieldWigth * mx, (int) (crossbowman.getHeight() / (crossbowman.getWidth() / fieldWigth)));
                         case "Druid" ->
-                                batch.draw(druid, i * kx + (mx == -1 ? druid.getWidth()  : 0), j * ky, druid.getWidth() * mx, druid.getHeight());
+                                batch.draw(druid, i * kx + (mx == -1 ? druid.getWidth() : 0), j * ky, fieldWigth * mx, (int) (druid.getHeight() / (druid.getWidth() / fieldWigth)));
                         case "Monk" ->
-                                batch.draw(monk, i * kx + (mx == -1 ? monk.getWidth() : 0), j * ky, monk.getWidth() * mx, monk.getHeight());
+                                batch.draw(monk, i * kx + (mx == -1 ? monk.getWidth() : 0), j * ky, fieldWigth * mx, (int) (monk.getHeight() / (monk.getWidth() / fieldWigth)));
                         case "Palladine" ->
-                                batch.draw(palladine, i * kx + (mx == -1 ? palladine.getWidth() : 0), j * ky, palladine.getWidth() * mx, palladine.getHeight());
+                                batch.draw(palladine, i * kx + (mx == -1 ? palladine.getWidth() : 0), j * ky, fieldWigth * mx, (int) (palladine.getHeight() / (palladine.getWidth() / fieldWigth)));
                         case "Peasant" ->
-                                batch.draw(peasant, i * kx + (mx == -1 ? peasant.getWidth() : 0), j * ky, peasant.getWidth() * mx, peasant.getHeight());
+                                batch.draw(peasant, i * kx + (mx == -1 ? peasant.getWidth() : 0), j * ky, fieldWigth * mx, (int) (peasant.getHeight() / (peasant.getWidth() / fieldWigth)));
                         case "Robber" ->
-                                batch.draw(robber, i * kx + (mx == -1 ? robber.getWidth() : 0), j * ky, robber.getWidth() * mx, robber.getHeight());
+                                batch.draw(robber, i * kx + (mx == -1 ? robber.getWidth() : 0), j * ky, fieldWigth * mx, (int) (robber.getHeight() / (robber.getWidth() / fieldWigth)));
                         case "Sniper" ->
-                                batch.draw(sniper, i * kx + (mx == -1 ? sniper.getWidth() : 0), j * ky, sniper.getWidth() * mx, sniper.getHeight());
+                                batch.draw(sniper, i * kx + (mx == -1 ? sniper.getWidth() : 0), j * ky, fieldWigth * mx, (int) (sniper.getHeight() / (sniper.getWidth() / fieldWigth)));
                         case "Sorcerer" ->
-                                batch.draw(sorcerer, i * kx + (mx == -1 ? sorcerer.getWidth() : 0), j * ky, sorcerer.getWidth() * mx, sorcerer.getHeight());
+                                batch.draw(sorcerer, i * kx + (mx == -1 ? sorcerer.getWidth() : 0), j * ky, fieldWigth * mx, (int) (sorcerer.getHeight() / (sorcerer.getWidth() / fieldWigth)));
                         case "Spearman" ->
-                                batch.draw(spearman, i * kx + (mx == -1 ? spearman.getWidth() : 0), j * ky, spearman.getWidth() * mx, spearman.getHeight());
+                                batch.draw(spearman, i * kx + (mx == -1 ? spearman.getWidth() : 0), j * ky, fieldWigth * mx, (int) (spearman.getHeight() / (spearman.getWidth() / fieldWigth)));
                         case "Wizard" ->
-                                batch.draw(wizard, i * kx + (mx == -1 ? wizard.getWidth() : 0), j * ky, wizard.getWidth() * mx, wizard.getHeight());
+                                batch.draw(wizard, i * kx + (mx == -1 ? wizard.getWidth() : 0), j * ky, fieldWigth * mx, (int) (wizard.getHeight() / (wizard.getWidth() / fieldWigth)));
                         default -> {
                         }
                     }
                 } else if (field instanceof Pit) {
-
+                    batch.draw(pit, i * kx, j * ky, fieldWigth, (int) (pit.getHeight() / (pit.getWidth() / fieldWigth)));
                 }
                 batch.end();
             }
@@ -111,6 +121,8 @@ public class MyGame extends ApplicationAdapter {
 
             if (arena.checkTheNeedForTheNextRound()) {
                 arena.step();
+            } else {
+                music.stop();
             }
         }
 
@@ -119,7 +131,6 @@ public class MyGame extends ApplicationAdapter {
             batch.begin();
             batch.draw(gameover, Gdx.graphics.getWidth() / 2 - 150 / 2, Gdx.graphics.getHeight() / 2 - 150 / 2, 150, 150);
             batch.end();
-            music.stop();
         }
     }
 
@@ -137,5 +148,6 @@ public class MyGame extends ApplicationAdapter {
         sorcerer.dispose();
         spearman.dispose();
         wizard.dispose();
+        pit.dispose();
     }
 }

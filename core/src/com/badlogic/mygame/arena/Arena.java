@@ -40,6 +40,8 @@ public class Arena implements ArenaInterface {
 
     @Override
     public void createTeam(String name, int teamSize, String color) {
+        if (this.map.sizeX < teamSize || this.map.sizeY < teamSize) return;
+
         teams.add(new Team(name, color));
         Team team = teams.get(teams.size() - 1);
         generateTeam(team, teamSize);
