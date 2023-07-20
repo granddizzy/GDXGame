@@ -29,13 +29,13 @@ public class Peasant extends UnitSupportiveBasic {
     @Override
     public boolean applyAbility(Unit targetUnit, Arena arena) {
         switch (new Random().nextInt(3)) {
-            case 0 -> {
+            case 0: {
                 return pokeWithAPitchfork(targetUnit);
             }
-            case 1 -> {
+            case 1: {
         return digAPit(arena);
             }
-            case 2 -> {
+            case 2: {
                 return kickInTheLegs(targetUnit);
             }
         }

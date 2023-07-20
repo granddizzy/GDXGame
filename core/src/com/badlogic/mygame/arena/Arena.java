@@ -57,16 +57,46 @@ public class Arena implements ArenaInterface {
     private static void generateTeam(Team team, int teamSize) {
         for (int i = 0; i < teamSize; i++) {
             switch (new Random().nextInt(10)) {
-                case 0 -> team.addUnit(new Crossbowman(Unit.getRandomUnitName()));
-                case 1 -> team.addUnit(new Druid(Unit.getRandomUnitName()));
-                case 2 -> team.addUnit(new Monk(Unit.getRandomUnitName()));
-                case 3 -> team.addUnit(new Palladine(Unit.getRandomUnitName()));
-                case 4 -> team.addUnit(new Peasant(Unit.getRandomUnitName()));
-                case 5 -> team.addUnit(new Robber(Unit.getRandomUnitName()));
-                case 6 -> team.addUnit(new Sniper(Unit.getRandomUnitName()));
-                case 7 -> team.addUnit(new Spearman(Unit.getRandomUnitName()));
-                case 8 -> team.addUnit(new Wizard(Unit.getRandomUnitName()));
-                case 9 -> team.addUnit(new Sorcerer(Unit.getRandomUnitName()));
+                case 0: {
+                    team.addUnit(new Crossbowman(Unit.getRandomUnitName()));
+                    break;
+                }
+                case 1: {
+                    team.addUnit(new Druid(Unit.getRandomUnitName()));
+                    break;
+                }
+                case 2: {
+                    team.addUnit(new Monk(Unit.getRandomUnitName()));
+                    break;
+                }
+                case 3: {
+                    team.addUnit(new Palladine(Unit.getRandomUnitName()));
+                    break;
+                }
+                case 4: {
+                    team.addUnit(new Peasant(Unit.getRandomUnitName()));
+                    break;
+                }
+                case 5: {
+                    team.addUnit(new Robber(Unit.getRandomUnitName()));
+                    break;
+                }
+                case 6: {
+                    team.addUnit(new Sniper(Unit.getRandomUnitName()));
+                    break;
+                }
+                case 7: {
+                    team.addUnit(new Spearman(Unit.getRandomUnitName()));
+                    break;
+                }
+                case 8: {
+                    team.addUnit(new Wizard(Unit.getRandomUnitName()));
+                    break;
+                }
+                case 9: {
+                    team.addUnit(new Sorcerer(Unit.getRandomUnitName()));
+                    break;
+                }
             }
         }
     }
@@ -339,25 +369,41 @@ public class Arena implements ArenaInterface {
 
             // определяем координаты по напрвлению
             switch (direction) {
-                case 0 -> stepCoordinates.y += 1;
-                case 1 -> {
+                case 0: {
+                    stepCoordinates.y += 1;
+                    break;
+                }
+                case 1: {
                     stepCoordinates.x += 1;
                     stepCoordinates.y += 1;
+                    break;
                 }
-                case 2 -> stepCoordinates.x += 1;
-                case 3 -> {
+                case 2: {
+                    stepCoordinates.x += 1;
+                    break;
+                }
+                case 3: {
                     stepCoordinates.x += 1;
                     stepCoordinates.y -= 1;
+                    break;
                 }
-                case 4 -> stepCoordinates.y -= 1;
-                case 5 -> {
+                case 4: {
+                    stepCoordinates.y -= 1;
+                    break;
+                }
+                case 5: {
                     stepCoordinates.x -= 1;
                     stepCoordinates.y -= 1;
+                    break;
                 }
-                case 6 -> stepCoordinates.x -= 1;
-                case 7 -> {
+                case 6: {
+                    stepCoordinates.x -= 1;
+                    break;
+                }
+                case 7: {
                     stepCoordinates.x -= 1;
                     stepCoordinates.y += 1;
+                    break;
                 }
             }
 

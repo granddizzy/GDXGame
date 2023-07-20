@@ -103,86 +103,97 @@ public class MyGame extends ApplicationAdapter {
 
                     // рисуем спрайты вычисляя размер в зависимости от размера рабочей области и матрицы
                     switch (type) {
-                        case "Crossbowman" -> {
+                        case "Crossbowman": {
                             int unitWidth = fieldWigth * mx * 2;
                             int unitHeight = (int) (crossbowman.getHeight() * (double) fieldWigth / crossbowman.getWidth()) * 2;
                             int unitX = i * fieldWigth + (mx == -1 ? fieldWigth : 0) - (int) (unitWidth / 4);
                             int unitY = j * fieldHeight - (int) (unitHeight / 6);
                             batch.draw(crossbowman, unitX, unitY, unitWidth, unitHeight);
+                            break;
                         }
-                        case "Druid" -> {
+                        case "Druid": {
 //                            batch.draw(druid, i * fieldWigth + (mx == -1 ? druid.getWidth() : 0), j * fieldHeight, fieldWigth * mx, (int) (druid.getHeight() * (double) fieldWigth / druid.getWidth()));
                             int unitWidth = fieldWigth * mx * 2;
                             int unitHeight = (int) (druid.getHeight() * (double) fieldWigth / druid.getWidth()) * 2;
                             int unitX = i * fieldWigth + (mx == -1 ? fieldWigth : 0) - (int) (unitWidth / 4);
                             int unitY = j * fieldHeight - (int) (unitHeight / 6);
                             batch.draw(druid, unitX, unitY, unitWidth, unitHeight);
+                            break;
                         }
-                        case "Monk" -> {
+                        case "Monk": {
 //                            batch.draw(monk, i * fieldWigth + (mx == -1 ? monk.getWidth() : 0), j * fieldHeight, fieldWigth * mx, (int) (monk.getHeight() * (double) fieldWigth / monk.getWidth()));
                             int unitWidth = fieldWigth * mx * 2;
                             int unitHeight = (int) (monk.getHeight() * (double) fieldWigth / monk.getWidth()) * 2;
                             int unitX = i * fieldWigth + (mx == -1 ? fieldWigth : 0) - (int) (unitWidth / 4);
                             int unitY = j * fieldHeight - (int) (unitHeight / 6);
                             batch.draw(monk, unitX, unitY, unitWidth, unitHeight);
+                            break;
                         }
-                        case "Palladine" -> {
+                        case "Palladine": {
 //                            batch.draw(palladine, i * fieldWigth + (mx == -1 ? palladine.getWidth() : 0), j * fieldHeight, fieldWigth * mx, (int) (palladine.getHeight() * fieldWigth / palladine.getWidth()));
                             int unitWidth = fieldWigth * mx * 2;
                             int unitHeight = (int) (palladine.getHeight() * (double) fieldWigth / palladine.getWidth()) * 2;
                             int unitX = i * fieldWigth + (mx == -1 ? fieldWigth : 0) - (int) (unitWidth / 4);
                             int unitY = j * fieldHeight - (int) (unitHeight / 6);
                             batch.draw(palladine, unitX, unitY, unitWidth, unitHeight);
+                            break;
                         }
-                        case "Peasant" -> {
+                        case "Peasant": {
 //                            batch.draw(peasant, i * fieldWigth + (mx == -1 ? peasant.getWidth() : 0), j * fieldHeight, fieldWigth * mx, (int) (peasant.getHeight() * (double) fieldWigth / peasant.getWidth()));
                             int unitWidth = fieldWigth * mx * 2;
                             int unitHeight = (int) (peasant.getHeight() * (double) fieldWigth / peasant.getWidth()) * 2;
                             int unitX = i * fieldWigth + (mx == -1 ? fieldWigth : 0) - (int) (unitWidth / 4);
                             int unitY = j * fieldHeight - (int) (unitHeight / 6);
                             batch.draw(peasant, unitX, unitY, unitWidth, unitHeight);
+                            break;
                         }
-                        case "Robber" -> {
+                        case "Robber": {
 //                            batch.draw(robber, i * fieldWigth + (mx == -1 ? robber.getWidth() : 0), j * fieldHeight, fieldWigth * mx, (int) (robber.getHeight() * (double) fieldWigth / robber.getWidth()));
                             int unitWidth = fieldWigth * mx * 2;
                             int unitHeight = (int) (robber.getHeight() * (double) fieldWigth / robber.getWidth()) * 2;
                             int unitX = i * fieldWigth + (mx == -1 ? fieldWigth : 0) - (int) (unitWidth / 4);
                             int unitY = j * fieldHeight - (int) (unitHeight / 6);
                             batch.draw(robber, unitX, unitY, unitWidth, unitHeight);
+                            break;
                         }
-                        case "Sniper" -> {
+                        case "Sniper": {
 //                            batch.draw(sniper, i * fieldWigth + (mx == -1 ? sniper.getWidth() : 0), j * fieldHeight, fieldWigth * mx, (int) (sniper.getHeight() * (double) fieldWigth / sniper.getWidth()));
                             int unitWidth = fieldWigth * mx * 2;
                             int unitHeight = (int) (sniper.getHeight() * (double) fieldWigth / sniper.getWidth()) * 2;
                             int unitX = i * fieldWigth + (mx == -1 ? fieldWigth : 0) - (int) (unitWidth / 4);
                             int unitY = j * fieldHeight - (int) (unitHeight / 6);
                             batch.draw(sniper, unitX, unitY, unitWidth, unitHeight);
+                            break;
                         }
-                        case "Sorcerer" -> {
+                        case "Sorcerer": {
 //                            batch.draw(sorcerer, i * fieldWigth + (mx == -1 ? sorcerer.getWidth() : 0), j * fieldHeight, fieldWigth * mx, (int) (sorcerer.getHeight() * fieldWigth / sorcerer.getWidth()));
                             int unitWidth = fieldWigth * mx * 2;
                             int unitHeight = (int) (sorcerer.getHeight() * (double) fieldWigth / sorcerer.getWidth()) * 2;
                             int unitX = i * fieldWigth + (mx == -1 ? fieldWigth : 0) - (int) (unitWidth / 4);
                             int unitY = j * fieldHeight - (int) (unitHeight / 6);
                             batch.draw(sorcerer, unitX, unitY, unitWidth, unitHeight);
+                            break;
                         }
-                        case "Spearman" -> {
+                        case "Spearman": {
 //                            batch.draw(spearman, i * fieldWigth + (mx == -1 ? spearman.getWidth() : 0), j * fieldHeight, fieldWigth * mx, (int) (spearman.getHeight() * (double) fieldWigth / spearman.getWidth()));
                             int unitWidth = fieldWigth * mx * 2;
                             int unitHeight = (int) (spearman.getHeight() * (double) fieldWigth / spearman.getWidth()) * 2;
                             int unitX = i * fieldWigth + (mx == -1 ? fieldWigth : 0) - (int) (unitWidth / 4);
                             int unitY = j * fieldHeight - (int) (unitHeight / 6);
                             batch.draw(spearman, unitX, unitY, unitWidth, unitHeight);
+                            break;
                         }
-                        case "Wizard" -> {
+                        case "Wizard": {
 //                            batch.draw(wizard, i * fieldWigth + (mx == -1 ? wizard.getWidth() : 0), j * fieldHeight, fieldWigth * mx, (int) (wizard.getHeight() * (double) fieldWigth / wizard.getWidth()));
                             int unitWidth = fieldWigth * mx * 2;
                             int unitHeight = (int) (wizard.getHeight() * (double) fieldWigth / wizard.getWidth()) * 2;
                             int unitX = i * fieldWigth + (mx == -1 ? fieldWigth : 0) - (int) (unitWidth / 4);
                             int unitY = j * fieldHeight - (int) (unitHeight / 6);
                             batch.draw(wizard, unitX, unitY, unitWidth, unitHeight);
+                            break;
                         }
-                        default -> {
+                        default:  {
+                            break;
                         }
                     }
                 } else if (field instanceof Pit) {

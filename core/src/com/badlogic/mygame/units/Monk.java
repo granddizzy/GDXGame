@@ -59,10 +59,10 @@ public class Monk extends UnitProtectiveWithoutShild {
     @Override
     public boolean applyAbility(Unit targetUnit, Arena arena) {
         switch (new Random().nextInt(2)) {
-            case 0 -> {
+            case 0:  {
                 return mindMonk(targetUnit);
             }
-            case 1 -> {
+            case 1: {
                 return monkSHand(targetUnit);
             }
         }

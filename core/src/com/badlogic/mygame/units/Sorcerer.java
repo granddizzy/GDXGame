@@ -23,7 +23,8 @@ public class Sorcerer extends UnitAttackingWithMagician {
 
             if (super.performAnAttack(unit)) {
                 return true;
-            };
+            }
+            ;
 //        } else {
 //            System.out.println("extraActivites <= 0");
         }
@@ -36,8 +37,14 @@ public class Sorcerer extends UnitAttackingWithMagician {
 //            System.out.println("Трюки.");
             super.clearPointAbility();
             switch (new Random().nextInt(1, 3)) {
-                case 1 -> target.decreaseSpeed(1);
-                case 2 -> target.decreasePointActivities();
+                case 1: {
+                    target.decreaseSpeed(1);
+                    break;
+                }
+                case 2: {
+                    target.decreasePointActivities();
+                    break;
+                }
             }
 
             return true;

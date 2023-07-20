@@ -126,14 +126,21 @@ public class View {
     }
 
     private String getAnsiColor(String color) {
-        return switch (color) {
-            case "RED" -> AnsiColors.ANSI_RED;
-            case "BLUE" -> AnsiColors.ANSI_BLUE;
-            case "GREEN" -> AnsiColors.ANSI_GREEN;
-            case "CYAN" -> AnsiColors.ANSI_CYAN;
-            case "PURPLE" -> AnsiColors.ANSI_PURPLE;
-            case "YELLOW" -> AnsiColors.ANSI_YELLOW;
-            default -> null;
-        };
+        switch (color) {
+            case "RED":
+                return AnsiColors.ANSI_RED;
+            case "BLUE":
+                return AnsiColors.ANSI_BLUE;
+            case "GREEN":
+                return AnsiColors.ANSI_GREEN;
+            case "CYAN":
+                return AnsiColors.ANSI_CYAN;
+            case "PURPLE":
+                return AnsiColors.ANSI_PURPLE;
+            case "YELLOW":
+                return AnsiColors.ANSI_YELLOW;
+            default:
+                return null;
+        }
     }
 }
