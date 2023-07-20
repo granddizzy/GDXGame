@@ -13,9 +13,12 @@ import com.badlogic.mygame.arena.map.Pit;
 import com.badlogic.mygame.units.Team;
 import com.badlogic.mygame.units.abstractUnits.Unit;
 
+import java.util.Random;
+
 public class MyGame extends ApplicationAdapter {
     SpriteBatch batch;
-    Texture gameover, background, crossbowman, druid, monk, palladine, peasant, robber, sniper, sorcerer, spearman, wizard, pit, debugField;
+    Texture gameover, crossbowman, druid, monk, palladine, peasant, robber, sniper, sorcerer, spearman, wizard, pit, debugField;
+    Texture background;
     Arena arena;
     Music music;
     private long lastDropTime;
@@ -33,7 +36,6 @@ public class MyGame extends ApplicationAdapter {
         lastDropTime = TimeUtils.nanoTime();
 
         batch = new SpriteBatch();
-        background = new Texture(Gdx.files.internal("fons/backgraund1.jpg"));
         gameover = new Texture(Gdx.files.internal("gameover.png"));
         debugField = new Texture(Gdx.files.internal("debugField.png"));
 
@@ -50,9 +52,38 @@ public class MyGame extends ApplicationAdapter {
 
         pit = new Texture("pit2.png");
 
-        music = Gdx.audio.newMusic(Gdx.files.internal("musics/call-of-victory.mp3"));
+        // выбираем фон
+        int rand = new Random().nextInt(5);
+//        rand = 1;
+        switch (rand) {
+            case 0: {
+                music = Gdx.audio.newMusic(Gdx.files.internal("musics/call-of-victory.mp3"));
+                music.setVolume(0.1f);
+                break;
+            }
+            case 1: {
+                music = Gdx.audio.newMusic(Gdx.files.internal("sounds/Fon_1.mp3"));
+                music.setVolume(0.5f);
+                break;
+            }
+            case 2: {
+                music = Gdx.audio.newMusic(Gdx.files.internal("sounds/Fon_2.mp3"));
+                music.setVolume(0.5f);
+                break;
+            }
+            case 3: {
+                music = Gdx.audio.newMusic(Gdx.files.internal("sounds/Fon_3.mp3"));
+                music.setVolume(0.5f);
+                break;
+            }
+            case 4: {
+                music = Gdx.audio.newMusic(Gdx.files.internal("sounds/Fon_4.mp3"));
+                music.setVolume(0.5f);
+                break;
+            }
+        }
+
         music.setLooping(true);
-        music.setVolume(0.1f);
         music.play();
 
         Map map = new Map(20, 20);
@@ -65,13 +96,64 @@ public class MyGame extends ApplicationAdapter {
 
         debug = false;
 
-        // размер рабочей области в зависимости от фона
-        width = (int) Gdx.graphics.getWidth();
-        heigth = (int) (Gdx.graphics.getHeight() - Gdx.graphics.getHeight() * 0.35);
+        // выбираем фон
+        rand = new Random().nextInt(7);
+//        rand = 6;
+        switch (rand) {
+            case 0: {
+                background = new Texture(Gdx.files.internal("fons/background1.jpg"));
+                // размер рабочей области в зависимости от фона
+                width = Gdx.graphics.getWidth();
+                heigth = (int) (Gdx.graphics.getHeight() - Gdx.graphics.getHeight() * 0.35);
+                break;
+            }
+            case 1: {
+                background = new Texture(Gdx.files.internal("fons/Fon_5.jpg"));
+                // размер рабочей области в зависимости от фона
+                width = Gdx.graphics.getWidth();
+                heigth = (int) (Gdx.graphics.getHeight() - Gdx.graphics.getHeight() * 0.3);
+                break;
+            }
+            case 2: {
+                background = new Texture(Gdx.files.internal("fons/Fon_6.jpg"));
+                // размер рабочей области в зависимости от фона
+                width = Gdx.graphics.getWidth();
+                heigth = (int) (Gdx.graphics.getHeight() - Gdx.graphics.getHeight() * 0.5);
+                break;
+            }
+            case 3: {
+                background = new Texture(Gdx.files.internal("fons/Fon_7.jpg"));
+                // размер рабочей области в зависимости от фона
+                width = Gdx.graphics.getWidth();
+                heigth = (int) (Gdx.graphics.getHeight() - Gdx.graphics.getHeight() * 0.45);
+                break;
+            }
+            case 4: {
+                background = new Texture(Gdx.files.internal("fons/Fon_4.jpg"));
+                // размер рабочей области в зависимости от фона
+                width = Gdx.graphics.getWidth();
+                heigth = (int) (Gdx.graphics.getHeight() - Gdx.graphics.getHeight() * 0.3);
+                break;
+            }
+            case 5: {
+                background = new Texture(Gdx.files.internal("fons/Fon_11.jpg"));
+                // размер рабочей области в зависимости от фона
+                width = Gdx.graphics.getWidth();
+                heigth = (int) (Gdx.graphics.getHeight() - Gdx.graphics.getHeight() * 0.6);
+                break;
+            }
+            case 6: {
+                background = new Texture(Gdx.files.internal("fons/Fon_9.jpg"));
+                // размер рабочей области в зависимости от фона
+                width = Gdx.graphics.getWidth();
+                heigth = (int) (Gdx.graphics.getHeight() - Gdx.graphics.getHeight() * 0.6);
+                break;
+            }
+        }
 
         // размер поля в зависимости от размера рабочей области и матрицы
         this.fieldWigth = width / arena.getMap().sizeX;
-        this.fieldHeight =heigth / arena.getMap().sizeY;
+        this.fieldHeight = heigth / arena.getMap().sizeY;
     }
 
     @Override
@@ -142,7 +224,7 @@ public class MyGame extends ApplicationAdapter {
                             shouUnit(batch, wizard, mx, i, j);
                             break;
                         }
-                        default:  {
+                        default: {
                             break;
                         }
                     }
@@ -183,7 +265,6 @@ public class MyGame extends ApplicationAdapter {
     @Override
     public void dispose() {
         batch.dispose();
-        background.dispose();
         crossbowman.dispose();
         druid.dispose();
         monk.dispose();
@@ -196,5 +277,7 @@ public class MyGame extends ApplicationAdapter {
         wizard.dispose();
         pit.dispose();
         debugField.dispose();
+
+        background.dispose();
     }
 }
