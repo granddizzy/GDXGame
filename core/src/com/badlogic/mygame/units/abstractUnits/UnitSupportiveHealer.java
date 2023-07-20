@@ -12,7 +12,7 @@ public abstract class UnitSupportiveHealer extends UnitSupportive {
 
     public UnitSupportiveHealer(int health, int defense, int attack, UnitsTypes type, String name) {
         super(health, defense, attack, type, name);
-        this.baseSpellHeal = new Random().nextInt(10,21);
+        this.baseSpellHeal = new Random().nextInt(11) + 10;
     }
 
     /**

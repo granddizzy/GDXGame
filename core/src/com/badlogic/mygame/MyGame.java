@@ -53,16 +53,12 @@ public class MyGame extends ApplicationAdapter {
         music.setVolume(0.1f);
         music.play();
 
-        // вычислим размерность матрицы в зависимости от разрешения экрана
-        int countFieds = Gdx.graphics.getWidth() / 50;
-
-        Map map = new Map(countFieds, countFieds);
+        Map map = new Map(20, 20);
 
         arena = new Arena(map);
 
-        // зададим команды в зависимости от размерности матрицы
-        arena.createTeam("Команда Добра", countFieds / 2, "GREEN");
-        arena.createTeam("Команда Зла", countFieds / 2, "RED");
+        arena.createTeam("Команда Добра", 10, "GREEN");
+        arena.createTeam("Команда Зла", 10, "RED");
 
         // размер рабочей области в зависимости от фона
         width = (int) Gdx.graphics.getWidth();

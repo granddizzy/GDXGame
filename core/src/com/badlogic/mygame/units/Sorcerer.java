@@ -36,12 +36,12 @@ public class Sorcerer extends UnitAttackingWithMagician {
         if (getAbilityPoints() == 2) {
 //            System.out.println("Трюки.");
             super.clearPointAbility();
-            switch (new Random().nextInt(1, 3)) {
-                case 1: {
+            switch (new Random().nextInt(2)) {
+                case 0: {
                     target.decreaseSpeed(1);
                     break;
                 }
-                case 2: {
+                case 1: {
                     target.decreasePointActivities();
                     break;
                 }

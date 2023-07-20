@@ -10,6 +10,6 @@ public class Dice {
     }
 
     public int rollTheDice() {
-        return new Random().nextInt(1, numberOfFaces);
+        return new Random().nextInt(numberOfFaces);
     }
 }
