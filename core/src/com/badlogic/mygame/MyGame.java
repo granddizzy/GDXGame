@@ -185,43 +185,43 @@ public class MyGame extends ApplicationAdapter {
                     // рисуем спрайты вычисляя размер в зависимости от размера рабочей области и матрицы
                     switch (type) {
                         case "Crossbowman": {
-                            shouUnit(batch, crossbowman, mx, i, j);
+                            showUnit(batch, crossbowman, mx, i, j);
                             break;
                         }
                         case "Druid": {
-                            shouUnit(batch, druid, mx, i, j);
+                            showUnit(batch, druid, mx, i, j);
                             break;
                         }
                         case "Monk": {
-                            shouUnit(batch, monk, mx, i, j);
+                            showUnit(batch, monk, mx, i, j);
                             break;
                         }
                         case "Palladine": {
-                            shouUnit(batch, palladine, mx, i, j);
+                            showUnit(batch, palladine, mx, i, j);
                             break;
                         }
                         case "Peasant": {
-                            shouUnit(batch, peasant, mx, i, j);
+                            showUnit(batch, peasant, mx, i, j);
                             break;
                         }
                         case "Robber": {
-                            shouUnit(batch, robber, mx, i, j);
+                            showUnit(batch, robber, mx, i, j);
                             break;
                         }
                         case "Sniper": {
-                            shouUnit(batch, sniper, mx, i, j);
+                            showUnit(batch, sniper, mx, i, j);
                             break;
                         }
                         case "Sorcerer": {
-                            shouUnit(batch, sorcerer, mx, i, j);
+                            showUnit(batch, sorcerer, mx, i, j);
                             break;
                         }
                         case "Spearman": {
-                            shouUnit(batch, spearman, mx, i, j);
+                            showUnit(batch, spearman, mx, i, j);
                             break;
                         }
                         case "Wizard": {
-                            shouUnit(batch, wizard, mx, i, j);
+                            showUnit(batch, wizard, mx, i, j);
                             break;
                         }
                         default: {
@@ -248,13 +248,13 @@ public class MyGame extends ApplicationAdapter {
         Team winner = arena.getWinner();
         if (winner != null) {
             batch.begin();
-            batch.draw(gameover, Gdx.graphics.getWidth() / 2 - 150 / 2, Gdx.graphics.getHeight() / 2 - 150 / 2, 150, 150);
+            batch.draw(gameover, Gdx.graphics.getWidth() / 2 - 350 / 2, Gdx.graphics.getHeight() / 2 - 300 / 2, 350, 300);
             batch.end();
         }
 
     }
 
-    private void shouUnit(SpriteBatch batch, Texture unit, int mx, int i, int j) {
+    private void showUnit(SpriteBatch batch, Texture unit, int mx, int i, int j) {
         int unitWidth = this.fieldWigth * mx * 2;
         int unitHeight = (int) (unit.getHeight() * (double) this.fieldWigth / unit.getWidth()) * 2;
         int unitX = i * this.fieldWigth + (mx == -1 ? this.fieldWigth : 0) - unitWidth / 4;
