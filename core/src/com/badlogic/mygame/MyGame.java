@@ -172,7 +172,7 @@ public class MyGame extends ApplicationAdapter {
                 break;
             }
             case 2: {
-                wizard = new Texture("units/Wizard3gif");
+                wizard = new Texture("units/Wizard3.gif");
                 break;
             }
         }
