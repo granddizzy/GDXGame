@@ -39,16 +39,143 @@ public class MyGame extends ApplicationAdapter {
         gameover = new Texture(Gdx.files.internal("gameover.png"));
         debugField = new Texture(Gdx.files.internal("debugField.png"));
 
-        crossbowman = new Texture("units/Crossbowman1.gif");
-        druid = new Texture("units/Druid1.gif");
-        monk = new Texture("units/Monk1.gif");
-        palladine = new Texture("units/Palladine1.gif");
-        peasant = new Texture("units/Peasant1.gif");
-        robber = new Texture("units/Robber1.gif");
-        sniper = new Texture("units/Sniper1.gif");
-        sorcerer = new Texture("units/Sorcerer1.gif");
-        spearman = new Texture("units/Spearman1.gif");
-        wizard = new Texture("units/Spearman1.gif");
+        // выбираем юнитов
+        switch (new Random().nextInt(2)) {
+            case 0: {
+                crossbowman = new Texture("units/Crossbowman1.gif");
+                break;
+            }
+            case 1: {
+                crossbowman = new Texture("units/Crossbowman2.gif");
+                break;
+            }
+        }
+        switch (new Random().nextInt(5)) {
+            case 0: {
+                druid = new Texture("units/Druid1.gif");
+                break;
+            }
+            case 1: {
+                druid = new Texture("units/Druid2.gif");
+                break;
+            }
+            case 2: {
+                druid = new Texture("units/Druid3.gif");
+                break;
+            }
+            case 3: {
+                druid = new Texture("units/Druid4.gif");
+                break;
+            }
+            case 4: {
+                druid = new Texture("units/Druid5.gif");
+                break;
+            }
+        }
+        switch (new Random().nextInt(2)) {
+            case 0: {
+                monk = new Texture("units/Monk1.gif");
+                break;
+            }
+            case 1: {
+                monk = new Texture("units/Monk2.gif");
+                break;
+            }
+        }
+        switch (new Random().nextInt(3)) {
+            case 0: {
+                palladine = new Texture("units/Palladine1.gif");
+                break;
+            }
+            case 1: {
+                palladine = new Texture("units/Palladine2.gif");
+                break;
+            }
+            case 2: {
+                palladine = new Texture("units/Palladine3.gif");
+                break;
+            }
+        }
+        switch (new Random().nextInt(2)) {
+            case 0: {
+                peasant = new Texture("units/Peasant1.gif");
+                break;
+            }
+            case 1: {
+                peasant = new Texture("units/Peasant2.gif");
+                break;
+            }
+        }
+        switch (new Random().nextInt(3)) {
+            case 0: {
+                robber = new Texture("units/Robber1.gif");
+                break;
+            }
+            case 1: {
+                robber = new Texture("units/Robber2.gif");
+                break;
+            }
+            case 2: {
+                robber = new Texture("units/Robber3.gif");
+                break;
+            }
+        }
+        switch (new Random().nextInt(3)) {
+            case 0: {
+                sniper = new Texture("units/Sniper1.gif");
+                break;
+            }
+            case 1: {
+                sniper = new Texture("units/Sniper2.gif");
+                break;
+            }
+            case 2: {
+                sniper = new Texture("units/Sniper3.gif");
+                break;
+            }
+        }
+        switch (new Random().nextInt(4)) {
+            case 0: {
+                sorcerer = new Texture("units/Sorcerer1.gif");
+                break;
+            }
+            case 1: {
+                sorcerer = new Texture("units/Sorcerer2.gif");
+                break;
+            }
+            case 2: {
+                sorcerer = new Texture("units/Sorcerer3.gif");
+                break;
+            }
+            case 3: {
+                sorcerer = new Texture("units/Sorcerer4.gif");
+                break;
+            }
+        }
+        switch (new Random().nextInt(2)) {
+            case 0: {
+                spearman = new Texture("units/Spearman1.gif");
+                break;
+            }
+            case 1: {
+                spearman = new Texture("units/Spearman2.gif");
+                break;
+            }
+        }
+        switch (new Random().nextInt(3)) {
+            case 0: {
+                wizard = new Texture("units/Wizard1.gif");
+                break;
+            }
+            case 1: {
+                wizard = new Texture("units/Wizard2.gif");
+                break;
+            }
+            case 2: {
+                wizard = new Texture("units/Wizard3gif");
+                break;
+            }
+        }
 
         pit = new Texture("pit2.png");
 
